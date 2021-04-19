@@ -4,18 +4,13 @@ var gCanvas;
 var gCtx;
 
 function onInit() {
+    gCanvas = document.querySelector('canvas')
+    gCtx = gCanvas.getContext('2d')
     renderGallery()
-    renderCanvas()
 }
 
 function renderCanvas() {
-    gCanvas = document.querySelector('canvas')
-    gCtx = gCanvas.getContext('2d')
     drawImg()
-    setTimeout(() => {
-        var line = getLines()[0]
-        drawText(line.txt, line.pos.x, line.pos.y) 
-    }, 100);
 }
 
 function renderGallery(){
@@ -24,21 +19,27 @@ function renderGallery(){
     let strHTMLs = images.map((image)=>{
         return `
         <div cllas="">
-        <img src="${image.url}" alt="">
+        <img src="${image.url}" alt="" onclick = "onChangeImage('${image.id}')">
         </div>
         `
     });
     document.querySelector('.image-gallery').innerHTML = strHTMLs.join('');
 }
 
+function onChangeImage(imageId){
+    changeImage(imageId)
+    renderCanvas()
+}
 
 
 function drawImg() {
-    var img = getImgs()
+    var imageId = getMeme().selectedImgId;
     const elImg = new Image()
-    elImg.src = img[1].url;
+    elImg.src = getImgs()[imageId-1].url;
     elImg.onload = ()=>{
         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+        var line = getLines()[0]
+        drawText(line.txt, line.pos.x, line.pos.y) 
     }
 }
 
@@ -55,6 +56,6 @@ function drawText(text, x, y) {
 function onSetText(){
     var elText = document.querySelector('input[name=line]').value; 
     setText(elText);
-    renderCanvas();
+    renderCanvas()
 }
 

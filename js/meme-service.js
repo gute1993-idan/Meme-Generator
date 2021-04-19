@@ -63,3 +63,7 @@ function getMeme() {
 function getLines() {
     return gMeme.lines
 }
+
+function changeImage(imageId){
+    gMeme.selectedImgId = imageId;
+}
