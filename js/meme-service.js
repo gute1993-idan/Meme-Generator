@@ -22,12 +22,12 @@ var gImgs = [
 ];
 
 var gMeme = {
-    selectedImgId: 5,
+    selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
             txt: 'first line',
-            size: 20,
+            size: 40,
             align: 'left',
             color: 'red',
             pos: {
@@ -37,12 +37,12 @@ var gMeme = {
         },
         {
             txt: 'second line',
-            size: 20,
+            size: 40,
             align: 'left',
             color: 'red',
             pos: {
-                x: 0,
-                y: 0
+                x: 250,
+                y: 460
             }
         }
     ]
@@ -64,6 +64,15 @@ function getLines() {
     return gMeme.lines
 }
 
-function changeImage(imageId){
+function changeImage(imageId) {
     gMeme.selectedImgId = imageId;
+}
+
+function getCurrLine() {
+    let currLine = getLines()[gMeme.selectedLineIdx]
+    return currLine
+}
+
+function getCurrImage() {
+    return gMeme.selectedImgId
 }

@@ -9,6 +9,13 @@
     src: url(../fonts/fontawesome-free-5.15.3-web/webfonts/fa-brands-400.ttf);
 }
 
+.icons >*{
+    width: 3.8125rem;
+    height:3.8125rem;
+    border: solid black;
+    cursor: pointer;
+}
+
 /* HELPERS */
 
 /* flex helpers */
