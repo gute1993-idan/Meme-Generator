@@ -4,23 +4,39 @@ var gCanvas;
 var gCtx;
 
 function onInit() {
+    renderGallery()
     renderCanvas()
-    drawImg()
-    setTimeout(() => {
-        drawText(getLines()[0].txt, 250, 60) 
-    }, 100);
 }
 
 function renderCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
+    drawImg()
+    setTimeout(() => {
+        var line = getLines()[0]
+        drawText(line.txt, line.pos.x, line.pos.y) 
+    }, 100);
 }
+
+function renderGallery(){
+    var images = getImgs();
+
+    let strHTMLs = images.map((image)=>{
+        return `
+        <div cllas="">
+        <img src="${image.url}" alt="">
+        </div>
+        `
+    });
+    document.querySelector('.image-gallery').innerHTML = strHTMLs.join('');
+}
+
 
 
 function drawImg() {
     var img = getImgs()
     const elImg = new Image()
-    elImg.src = img[0].url;
+    elImg.src = img[1].url;
     elImg.onload = ()=>{
         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
     }
@@ -39,6 +55,6 @@ function drawText(text, x, y) {
 function onSetText(){
     var elText = document.querySelector('input[name=line]').value; 
     setText(elText);
-    renderCanvas()
-
+    renderCanvas();
 }
+
