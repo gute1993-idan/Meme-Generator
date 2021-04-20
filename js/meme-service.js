@@ -69,8 +69,7 @@ function changeImage(imageId) {
 }
 
 function getCurrLine() {
-    let currLine = getLines()[gMeme.selectedLineIdx]
-    return currLine
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
 
 function getCurrImage() {
@@ -78,5 +77,39 @@ function getCurrImage() {
 }
 
 function switchLine() {
-   return gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+    return gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+}
+
+function changeAline(direction) {
+    switch (direction) {
+        case 'left':
+            getLines()[gMeme.selectedLineIdx].pos.x = 100;
+            break;
+        case 'center':
+            getLines()[gMeme.selectedLineIdx].pos.x = 250;
+            break;
+        case 'right':
+            getLines()[gMeme.selectedLineIdx].pos.x = 400;
+            break;
+    }
+}
+
+function addLine() {
+    if (gMeme.lines.length > 2) return;
+    var newLine = {
+        txt: 'middle line',
+        size: 40,
+        align: 'center',
+        color: 'red',
+        pos: {
+            x: 250,
+            y: 250
+        }
+    }
+    gMeme.lines.push(newLine)
+}
+
+function deleteLine() {
+    // if (gMeme.selectedLineIdx > 1) gMeme.selectedLineIdx --;
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }

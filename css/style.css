@@ -4,10 +4,12 @@
     font-family: brands;
     src: url(../fonts/fontawesome-free-5.15.3-web/webfonts/fa-brands-400.ttf);
 }
+
 @font-face {
     font-family: Montserrat-regular;
     src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
 }
+
 @font-face {
     font-family: Montserrat-bold;
     src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
@@ -43,6 +45,10 @@ p {
     margin: 0;
 }
 
+button {
+    margin: 0
+}
+
 img {
     width: 100%;
     object-fit: cover;
@@ -54,9 +60,10 @@ img {
 
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 13px 13px;
 }
+
 .img-grid {
     cursor: pointer;
 }
@@ -68,33 +75,57 @@ img {
 }
 
 .main-header {
-    font-family:Montserrat-regular ;
+    font-family: Montserrat-regular;
     height: 66px;
     background-color: #FF7F00;
     /* position: fixed; */
     top: 0;
 }
 
+/* MEME EDITOR */
+
 .meme-editor {
     display: none;
 }
+
+/* .canvas-container {
+    width: 450px;
+} */
+
 .editor-container {
     padding: 20px 50px;
+    flex-basis: 50%;
+}
+
+.editor-icons {
+    width: 50%;
+
 }
 
 .icons>* {
     width: 3.8125rem;
+    /* background-color: #FFFFFF; */
     height: 3.8125rem;
-    border: solid black;
     cursor: pointer;
 }
+
 .logo-place {
     margin-inline-start: 29px;
 }
 
+.btn {
+    width: 121px;
+    height: 61px;
+    background-color: #FF7F00;
+    border-radius: 10px;
+
+}
 .logo {
     width: 133px;
     height: 22px;
+}
+.logo-footer {
+    margin-bottom: 16px;
 }
 
 .main-nav a {
@@ -110,6 +141,15 @@ img {
     font-size: 1.1875rem;
     bottom: 0;
 }
+.about {
+    height: 500px;
+    background-color: #FFFFFF;
+}
+.about-content {
+    width: 892px; 
+    margin: 0 auto;
+}
+
 .my-img {
     border-radius: 50%;
     object-fit: cover;
@@ -117,15 +157,11 @@ img {
     height: 323px;
 }
 
-.about {
-    width: 892px;
-    height: 323px;
-    margin-bottom: 166px;
-}
 .my-name {
     font-family: Montserrat-bold;
     margin-bottom: 7px;
 }
+
 .about-txt {
     flex-direction: column;
     margin-left: 41px;

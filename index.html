@@ -16,9 +16,9 @@
             <img class="logo" src="./img/LOGO.png" alt="">
         </div>
         <ul class="main-nav flex clean-list">
-            <li><a href="">Gallery</a></li>
+            <li><a href="./index.html">Gallery</a></li>
             <li><a href="">Memes</a></li>
-            <li><a href="">About</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </header>
 
@@ -39,40 +39,64 @@
                 <canvas height="500" width="500"></canvas>
             </div>
 
-            <section class="icons">
-                <input class="meme-text" id="line" type=text name="line" placeholder="first line" onkeyup="onSetText()">
-                <img onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
-                <img onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
-                <!-- up-down -->
-                <img onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
-                <img onclick="changeDirection(-1)" src="./icons/up.png" alt="">
-                <!-- switch line -->
-                <img onclick="onSwitchLine()" src="./icons/up-and-down-rows.png" alt="">
-            </section>
+            <div class="editor-icons">
+                <div>
+                    <input class="meme-text" id="line" type=text name="line" placeholder="first line"
+                        onkeyup="onSetText()">
+                </div>
+                <section class="icons">
+                    <div class="line-one flex">
+                        <!-- switch line -->
+                        <img onclick="onSwitchLine()" src="./icons/up-and-down-rows.png" alt="">
+                        <img onclick="onAddLine()" src="./icons/add.png" alt="">
+                        <img onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
+                        <img onclick="changeDirection(-1)" src="./icons/up.png" alt="">
+                        <img onclick="onDeleteLine()" src="./icons/trash.png" alt="">
+                    </div>
+
+                    <div class="line-two flex">
+                        <img onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
+                        <img onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
+                        <!-- change aline -->
+                        <img src="./icons/align-to-left.png" onclick="onChangeAline('left')" alt="">
+                        <img src="./icons/center-text-alignment.png" onclick="onChangeAline('center')" alt="">
+                        <img src="./icons/align-to-right.png" onclick="onChangeAline('right')" alt="">
+                    </div>
+
+                    <div class="line-three flex">
+                        <img onclick="onChangeColor()" src="./icons/paint-board-and-brush.png" alt="">
+                    </div>
+                    <div class="editor-btn flex ">
+                        <div class="btn"><a  href="#" onclick="downloadCanvas(this)" download="">Download</a></div>
+                        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank">Share</a>
+
+                    </div>
+                </section>
+            </div>
         </section>
+    </section>
 
 
     </section>
 
     <section class="image-gallery main-container"></section>
 
-    <section class="about flex align-center">
-        <img class="my-img" src="./img/myImg.jpg">
-        <div class="about-txt">
-            <p class="my-name">Idan Gutman</p>
-            <p class="about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda accusamus
-                molestias mollitia? Corrupti dolorem repellat atque excepturi ducimus voluptatum tempora quas velit.
-                Adipisci, ipsum excepturi. Laborum facilis sint ducimus.</p>
+    <section id="about" class="about flex align-center">
+        <div class="about-content flex align-center justify-content">
+            <img class="my-img" src="./img/myImg.jpg">
+            <div class="about-txt">
+                <p class="my-name">Idan Gutman</p>
+                <p class="about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda accusamus
+                    molestias mollitia? Corrupti dolorem repellat atque excepturi ducimus voluptatum tempora quas velit.
+                    Adipisci, ipsum excepturi. Laborum facilis sint ducimus.</p>
+            </div>
         </div>
     </section>
 
     <footer class="main-footer flex align-center justify-content">
-        <img class="logo" src="img/LOGO.png" alt="logo"></img>
+        <img class="logo logo-footer" src="img/logo-footer.png" alt="logo"></img>
         <p>All rights reserved 2021</p>
     </footer>
-
-
-
 
     <script src="./js/util-service.js"></script>
     <script src="./js/storage-service.js"></script>
