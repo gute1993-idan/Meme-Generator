@@ -76,3 +76,7 @@ function getCurrLine() {
 function getCurrImage() {
     return gMeme.selectedImgId
 }
+
+function switchLine() {
+   return gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+}

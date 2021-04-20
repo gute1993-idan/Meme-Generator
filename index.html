@@ -11,34 +11,68 @@
 
 <body onload="onInit()">
 
-<header class="main-header">
-    <img class="logo" src="" alt="">
-</header>
+    <header class="main-header flex space-between align-center">
+        <div class="logo-place">
+            <img class="logo" src="./img/LOGO.png" alt="">
+        </div>
+        <ul class="main-nav flex clean-list">
+            <li><a href="">Gallery</a></li>
+            <li><a href="">Memes</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </header>
 
-<section class="icons">
-<img onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
-<img onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
-<!-- up-down -->
-<img onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
-<img onclick="changeDirection(-1)" src="./icons/up.png" alt="">
-<!-- switch line -->
-<img onclick="switchLine()" src="./icons/up-and-down-rows.png" alt="">
-</section>
+    <section class="search-nav">
+        <input list="Search-word" class="search-input" name="search" placeholder="Search keyword">
+        <datalist id="Search-word">
+            <option value="funny">
+            <option value="animal">
+            <option value="bad">
+            <option value="sad">
+            <option value="happy">
+        </datalist>
+    </section>
 
-<input class="meme-text" id="line" type=text name="line" placeholder="text" onkeyup="onSetText()">
+    <section class="meme-editor">
+        <section class="editor-container flex align-center">
+            <div class="canvas-container">
+                <canvas height="500" width="500"></canvas>
+            </div>
 
-    <div class="canvas-container">
-        <canvas height="500" width="500"></canvas>
-    </div>
+            <section class="icons">
+                <input class="meme-text" id="line" type=text name="line" placeholder="first line" onkeyup="onSetText()">
+                <img onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
+                <img onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
+                <!-- up-down -->
+                <img onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
+                <img onclick="changeDirection(-1)" src="./icons/up.png" alt="">
+                <!-- switch line -->
+                <img onclick="onSwitchLine()" src="./icons/up-and-down-rows.png" alt="">
+            </section>
+        </section>
 
-    <section class="image-gallery">
 
     </section>
 
+    <section class="image-gallery main-container"></section>
+
+    <section class="about flex align-center">
+        <img class="my-img" src="./img/myImg.jpg">
+        <div class="about-txt">
+            <p class="my-name">Idan Gutman</p>
+            <p class="about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda accusamus
+                molestias mollitia? Corrupti dolorem repellat atque excepturi ducimus voluptatum tempora quas velit.
+                Adipisci, ipsum excepturi. Laborum facilis sint ducimus.</p>
+        </div>
+    </section>
+
+    <footer class="main-footer flex align-center justify-content">
+        <img class="logo" src="img/LOGO.png" alt="logo"></img>
+        <p>All rights reserved 2021</p>
+    </footer>
 
 
 
-    
 
     <script src="./js/util-service.js"></script>
     <script src="./js/storage-service.js"></script>

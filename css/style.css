@@ -1,29 +1,147 @@
-* {
-    box-sizing: border-box;
-}
-
 /* FONTS */
 
 @font-face {
     font-family: brands;
     src: url(../fonts/fontawesome-free-5.15.3-web/webfonts/fa-brands-400.ttf);
 }
+@font-face {
+    font-family: Montserrat-regular;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Montserrat-bold;
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
 
-.icons >*{
+* {
+    box-sizing: border-box;
+}
+
+/* BASE */
+html {
+    font-family: Montserrat-regular;
+}
+
+body {
+    margin: 0;
+    background-color: #E3E3E3;
+
+}
+
+a {
+    text-decoration-line: none;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* componenets */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    gap: 13px 13px;
+}
+.img-grid {
+    cursor: pointer;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 27px;
+}
+
+.main-header {
+    font-family:Montserrat-regular ;
+    height: 66px;
+    background-color: #FF7F00;
+    /* position: fixed; */
+    top: 0;
+}
+
+.meme-editor {
+    display: none;
+}
+.editor-container {
+    padding: 20px 50px;
+}
+
+.icons>* {
     width: 3.8125rem;
-    height:3.8125rem;
+    height: 3.8125rem;
     border: solid black;
     cursor: pointer;
+}
+.logo-place {
+    margin-inline-start: 29px;
+}
+
+.logo {
+    width: 133px;
+    height: 22px;
+}
+
+.main-nav a {
+    margin-inline-end: 29px;
+}
+
+.main-footer {
+    height: 208px;
+    background-color: #FF7F00;
+    flex-direction: column;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.1875rem;
+    bottom: 0;
+}
+.my-img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 323px;
+    height: 323px;
+}
+
+.about {
+    width: 892px;
+    height: 323px;
+    margin-bottom: 166px;
+}
+.my-name {
+    font-family: Montserrat-bold;
+    margin-bottom: 7px;
+}
+.about-txt {
+    flex-direction: column;
+    margin-left: 41px;
 }
 
 /* HELPERS */
 
-/* flex helpers */
+/* .container {
+
+} */
 
 .flex {
     display: flex;
 }
-.justify-content{
+
+.justify-content {
     justify-content: center;
 }
 
@@ -40,12 +158,8 @@
     flex-direction: column;
 }
 
-/* list helpers */
-
 .clean-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
-

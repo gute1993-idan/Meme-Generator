@@ -19,18 +19,26 @@ function renderGallery() {
     let strHTMLs = images.map((image) => {
         return `
         <div class="">
-        <img src="${image.url}" alt="" onclick = "onChangeImage('${image.id}')">
+        <img class = "img-grid" src="${image.url}" alt="" onclick = "openMemeEditor('${image.id}')">
         </div>
         `
     });
     document.querySelector('.image-gallery').innerHTML = strHTMLs.join('');
 }
 
-function onChangeImage(imageId) {
+// function onChangeImage(imageId) {
+//     changeImage(imageId)
+//     renderCanvas()
+// }
+
+function openMemeEditor(imageId){
+    document.querySelector('.main-container').style.display = 'none'
+    document.querySelector('.about').style.display = 'none'
+    document.querySelector('.search-nav').style.display = 'none'
+    document.querySelector('.meme-editor').style.display = 'block'
     changeImage(imageId)
     renderCanvas()
 }
-
 
 function drawImg() {
     var imageId = getMeme().selectedImgId;
@@ -38,10 +46,7 @@ function drawImg() {
     elImg.src = getImgs()[imageId - 1].url;
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-        var line0 = getLines()[0]
-        var line1 = getLines()[1]
-        drawText(line0.txt, line0.pos.x, line0.pos.y)
-        drawText(line1.txt, line1.pos.x, line1.pos.y)
+        drewTextLines()
     }
 }
 
@@ -71,7 +76,17 @@ function changeDirection(num) {
     renderCanvas()
 }
 
-function switchLine() {
-    var currLine = getCurrLine()
-    // if(currLine === 0) 
+function onSwitchLine() {
+    switchLine();
+    document.querySelector('input[name=line]').placeholder = 'Second line';
 }
+
+function drewTextLines(){
+    return getLines().forEach(line =>{
+        drawText(line.txt, line.pos.x, line.pos.y)
+    })
+}
+
+// function onFocusText() {
+
+// } 
