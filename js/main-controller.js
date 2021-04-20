@@ -37,15 +37,15 @@ function openMemeEditor(imageId) {
     document.querySelector('.search-nav').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'block'
     changeImage(imageId)
+    resizeCanvas()
     renderCanvas()
-    // resizeCanvas()
 }
 
-// function resizeCanvas() {
-//     const elCanvasContainer = document.querySelector('.canvas-container');
-//     gCanvas.width = elCanvasContainer.offsetWidth;
-//     gCanvas.height = elCanvasContainer.offsetHeight;
-// }
+function resizeCanvas() {
+    const elCanvasContainer = document.querySelector('.canvas-container');
+    gCanvas.width = elCanvasContainer.offsetWidth;
+    gCanvas.height = elCanvasContainer.offsetHeight;
+}
 
 function drawImg() {
     var imageId = getMeme().selectedImgId;
@@ -115,5 +115,10 @@ function onAddLine() {
 
 function onDeleteLine() {
     deleteLine()
+    renderCanvas()
+}
+
+function onChangeColor(color){
+    changeColor(color.value);
     renderCanvas()
 }

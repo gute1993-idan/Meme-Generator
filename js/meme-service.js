@@ -96,20 +96,24 @@ function changeAline(direction) {
 
 function addLine() {
     if (gMeme.lines.length > 2) return;
-    var newLine = {
-        txt: 'middle line',
-        size: 40,
-        align: 'center',
-        color: 'red',
-        pos: {
-            x: 250,
-            y: 250
+        var newLine = {
+            txt: 'middle line',
+            size: 40,
+            align: 'center',
+            color: 'red',
+            pos: {
+                x: 250,
+                y: 250
+            }
         }
-    }
-    gMeme.lines.push(newLine)
+        gMeme.lines.push(newLine)
 }
 
 function deleteLine() {
     // if (gMeme.selectedLineIdx > 1) gMeme.selectedLineIdx --;
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+}
+
+function changeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
 }
