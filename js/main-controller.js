@@ -30,25 +30,13 @@ function renderGallery() {
     document.querySelector('.image-gallery').innerHTML = strHTMLs.join('');
 }
 
-// function onChangeImage(imageId) {
-//     changeImage(imageId)
-//     renderCanvas()
-// }
-
 function openMemeEditor(imageId) {
     document.querySelector('.main-container').style.display = 'none'
     document.querySelector('.about').style.display = 'none'
     document.querySelector('.search-nav').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'block'
     changeImage(imageId)
-    // resizeCanvas()
     renderCanvas()
-}
-
-function resizeCanvas() {
-    const elCanvasContainer = document.querySelector('.canvas-container');
-    gCanvas.width = elCanvasContainer.offsetWidth;
-    gCanvas.height = elCanvasContainer.offsetHeight;
 }
 
 function drawImg() {
@@ -70,6 +58,7 @@ function drawText(text, x, y) {
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
+
 
 function onSetText() {
     var elText = document.querySelector('input[name=line]').value;
@@ -107,7 +96,6 @@ function onSearchImg(letters) {
     gIsSearchImg = true;
     setImagesSearch(letters);
     renderGallery()
-    // renderCanvas()
 }
 
 // function onFocusText() {
@@ -139,3 +127,4 @@ function onChangeColor(color){
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
+

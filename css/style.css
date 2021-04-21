@@ -1,11 +1,6 @@
 /* FONTS */
 
 @font-face {
-    font-family: brands;
-    src: url(../fonts/fontawesome-free-5.15.3-web/webfonts/fa-brands-400.ttf);
-}
-
-@font-face {
     font-family: Montserrat-regular;
     src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
 }
@@ -91,18 +86,13 @@ img {
     padding: 50px;
 }
 
-/* .canvas-container {
-    width: 450px;
-} */
 
 .editor-container {
     padding: 20px 50px;
-    /* flex-basis: 50%; */
     height: 500px;
 }
 
 .editor-icons {
-    /* width: 30%; */
     height: 100%;
     flex-direction: column;
     margin-inline-start: 50px;
@@ -190,7 +180,10 @@ img {
     border: 0;
     border-bottom: 2px solid rgb(141, 133, 133);
 }
-
+.search-img {
+    width: 20px;
+    margin-left: 15px;
+}
 .main-footer {
     height: 208px;
     background-color: #FF7F00;
@@ -265,6 +258,8 @@ img {
     display: none;
 }
 
+/* mobile */
+
 @media (max-width:530px) {
 
     .btn-menu {
@@ -320,6 +315,7 @@ img {
     }
 
     /* Footer */
+
     .about-content {
         flex-direction: column
     }
@@ -369,6 +365,18 @@ img {
         border-radius: 5px;
         padding: 7px;
         border: none;
+    }
+
+    .main-container {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 250px));
+        gap: 10px 10px;
+        padding: 0 10px;
     }
 
 
