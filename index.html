@@ -11,71 +11,81 @@
 
 <body onload="onInit()">
 
-    <header class="main-header flex space-between align-center">
-        <div class="logo-place">
-            <img class="logo" src="./img/LOGO.png" alt="">
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
+    <header class="main-header flex justify-content">
+        <div class="container flex space-between align-center">
+            <div class="logo-place">
+                <img class="logo" src="./img/LOGO.png" alt="">
+            </div>
+            <ul class="main-nav modal flex clean-list">
+                <li><a href="./index.html">Gallery</a></li>
+                <li><a href="">Memes</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="btn-menu" onclick="toggleMenu()">☰</button>
         </div>
-        <ul class="main-nav flex clean-list">
-            <li><a href="./index.html">Gallery</a></li>
-            <li><a href="">Memes</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
     </header>
 
-    <section class="search-nav flex align-center">
-        <input list="Search-word" class="search-input" name="search" placeholder="Search keyword">
-        <datalist id="Search-word">
-            <option value="funny">
-            <option value="animal">
-            <option value="bad">
-            <option value="sad">
-            <option value="happy">
-        </datalist>
+    <section class="search-nav flex align-center justify-content">
+        <div class="container align-center justify-content">
+            <input list="Search-word" class="search-input" name="search" placeholder="Search keyword"
+                onkeyup="onSearchImg(this.value)">
+            <datalist id="Search-word">
+                <option value="all">
+                <option value="funny">
+                <option value="minister">
+                <option value="sweet">
+                <option value="happy">
+                <option value="dog">
+                <option value="sleep">
+                <option value="baby">
+                <option value="movie">
+                <option value="weird">
+                <option value="angry">
+                <option value="cat">
+            </datalist>
+            <div></div>
+        </div>
     </section>
 
     <section class="meme-editor">
-        <section class="editor-container flex align-center">
+        <section class="editor-container flex align-center justify-content">
             <div class="canvas-container">
-                <canvas height="500" width="500"></canvas>
+                <canvas height="450" width="450"></canvas>
             </div>
 
-            <div class="editor-icons">
+            <div class="editor-icons flex justify-content">
                 <div>
                     <input class="meme-text" id="line" type=text name="line" placeholder="first line"
                         onkeyup="onSetText()">
                 </div>
-                <section class="icons">
-                    <div class="line-one flex">
-                        <!-- switch line -->
-                        <img onclick="onSwitchLine()" src="./icons/up-and-down-rows.png" alt="">
-                        <img onclick="onAddLine()" src="./icons/add.png" alt="">
-                        <img onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
-                        <img onclick="changeDirection(-1)" src="./icons/up.png" alt="">
-                        <img onclick="onDeleteLine()" src="./icons/trash.png" alt="">
+                    <div class="line-one flex align-center">
+                        <img class="icon-btn" onclick="onSwitchLine()" src="./icons/up-and-down-rows.png" alt="">
+                        <img class="icon-btn" onclick="onAddLine()" src="./icons/add.png" alt="">
+                        <img class="icon-btn" onclick="onDeleteLine()" src="./icons/trash.png" alt="">
                     </div>
 
-                    <div class="line-two flex">
-                        <img onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
-                        <img onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
-                        <!-- change aline -->
-                        <img src="./icons/align-to-left.png" onclick="onChangeAline('left')" alt="">
-                        <img src="./icons/center-text-alignment.png" onclick="onChangeAline('center')" alt="">
-                        <img src="./icons/align-to-right.png" onclick="onChangeAline('right')" alt="">
+                    <div class="line-two flex align-center">
+                        <img class="icon-btn" onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
+                        <img class="icon-btn" onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
+                        <img class="icon-btn" src="./icons/align-to-left.png" onclick="onChangeAline('left')" alt="">
+                        <img class="icon-btn" src="./icons/center-text-alignment.png" onclick="onChangeAline('center')" alt="">
+                        <img class="icon-btn" src="./icons/align-to-right.png" onclick="onChangeAline('right')" alt="">
                     </div>
 
-                    <div class="line-three flex">
-                        <button class="btn-color">
+                    <div class="line-three flex align-center">
                             <input type="color" id="text-color" onchange="onChangeColor(this)">
-                            <img src="./icons/paint-board-and-brush.png" alt="">
-                        </button>
+                            <img class="icon-btn" src="./icons/paint-board-and-brush.png" alt="">
+                        <img class="icon-btn" onclick="changeDirection(-1)" src="./icons/up.png" alt="">
+                        <img class="icon-btn" onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
                     </div>
-                    <div class="editor-btn flex ">
-                        <div class="btn"><a href="#" onclick="downloadCanvas(this)" download="">Download</a></div>
-                        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=#url"
-                            target="_blank">Share</a>
 
+                    <div class="editor-btn flex align-center">
+                       <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                       <a href="https://www.facebook.com/sharer/sharer.php?u=#url"
+                            target="_blank">Share</a>
                     </div>
-                </section>
             </div>
         </section>
     </section>
@@ -90,9 +100,9 @@
             <img class="my-img" src="./img/myImg.jpg">
             <div class="about-txt">
                 <p class="my-name">Idan Gutman</p>
-                <p class="about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda accusamus
-                    molestias mollitia? Corrupti dolorem repellat atque excepturi ducimus voluptatum tempora quas velit.
-                    Adipisci, ipsum excepturi. Laborum facilis sint ducimus.</p>
+                <p class="about-me">My name is Idan Gutman, developer and designer of applications and websites, I am
+                    currently studying at "Coding Academy" and hope to complete the course successfully and start
+                    working in the field</p>
             </div>
         </div>
     </section>

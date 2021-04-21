@@ -2,6 +2,7 @@
 
 var gCanvas;
 var gCtx;
+var gIsSearchImg = false;
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -14,8 +15,11 @@ function renderCanvas() {
 }
 
 function renderGallery() {
-    var images = getImgs();
-
+    if (gIsSearchImg) {
+        var images = getImgSearch();
+    }else {
+        var images = getImgs();
+    }
     let strHTMLs = images.map((image) => {
         return `
         <div class="">
@@ -37,7 +41,7 @@ function openMemeEditor(imageId) {
     document.querySelector('.search-nav').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'block'
     changeImage(imageId)
-    resizeCanvas()
+    // resizeCanvas()
     renderCanvas()
 }
 
@@ -99,6 +103,13 @@ function drewTextLines() {
     })
 }
 
+function onSearchImg(letters) {
+    gIsSearchImg = true;
+    setImagesSearch(letters);
+    renderGallery()
+    // renderCanvas()
+}
+
 // function onFocusText() {
 
 // } 
@@ -121,4 +132,10 @@ function onDeleteLine() {
 function onChangeColor(color){
     changeColor(color.value);
     renderCanvas()
+}
+
+//mobile//
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
 }

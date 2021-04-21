@@ -78,7 +78,7 @@ img {
     font-family: Montserrat-regular;
     height: 66px;
     background-color: #FF7F00;
-    /* position: fixed; */
+    position: sticky;
     top: 0;
 }
 
@@ -86,31 +86,50 @@ img {
 
 .meme-editor {
     display: none;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 50px;
 }
 
-.canvas-container {
-    /* width: 50%; */
-    height: 500px;
-    flex: 1 0 0
-}
+/* .canvas-container {
+    width: 450px;
+} */
 
 .editor-container {
     padding: 20px 50px;
     /* flex-basis: 50%; */
-    flex-direction: row ;
-
+    height: 500px;
 }
 
 .editor-icons {
-    /* width: 50%; */
-    flex: 1 0 0
+    /* width: 30%; */
+    height: 100%;
+    flex-direction: column;
+    margin-inline-start: 50px;
+}
+
+.meme-text {
+    margin-block-end: 20px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    top: 0;
 }
 
 .icons>* {
+    margin-block-end: 20px;
+}
+
+.icon-btn {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-inline-start: 10px;
+    padding: 5px;
     width: 3.8125rem;
-    /* background-color: #FFFFFF; */
     height: 3.8125rem;
     cursor: pointer;
+    margin-block-end: 20px;
 }
 
 #text-color {
@@ -120,26 +139,35 @@ img {
     height: 61px;
     cursor: pointer;
 }
-.btn-color{
+
+.btn-color {
     border: none;
     background-color: white;
+    display: none;
 }
 
-.logo-place {
-    margin-inline-start: 29px;
+.line-one,
+.line-three {
+    margin-inline-start: 50px;
 }
 
-.btn {
-    width: 121px;
-    height: 61px;
+.editor-btn>* {
+    margin-inline-start: 50px;
+}
+
+.editor-btn a {
     background-color: #FF7F00;
+    padding: 20px;
     border-radius: 10px;
     cursor: pointer;
+
 }
+
 .logo {
     width: 133px;
     height: 22px;
 }
+
 .logo-footer {
     margin-bottom: 16px;
 }
@@ -147,10 +175,12 @@ img {
 .main-nav a {
     margin-inline-end: 29px;
 }
+
 .search-nav {
     background-color: white;
     height: 90px;
 }
+
 .search-input {
     border: none;
     outline: none;
@@ -159,8 +189,6 @@ img {
     border-radius: 10px;
     border: 0;
     border-bottom: 2px solid rgb(141, 133, 133);
-    
-
 }
 
 .main-footer {
@@ -172,12 +200,14 @@ img {
     font-size: 1.1875rem;
     bottom: 0;
 }
+
 .about {
     height: 500px;
     background-color: #FFFFFF;
 }
+
 .about-content {
-    width: 892px; 
+    width: 892px;
     margin: 0 auto;
 }
 
@@ -200,9 +230,9 @@ img {
 
 /* HELPERS */
 
-/* .container {
-
-} */
+.container {
+    width: 1200px;
+}
 
 .flex {
     display: flex;
@@ -229,4 +259,119 @@ img {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.btn-menu {
+    display: none;
+}
+
+@media (max-width:530px) {
+
+    .btn-menu {
+        display: block;
+        outline: none;
+        background-color: transparent;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .main-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 50%);
+        cursor: pointer;
+        pointer-events: none;
+        opacity: 0;
+
+    }
+
+    body.menu-open .main-screen {
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 0;
+        align-items: center;
+        height: 100vh;
+        background-color: #FF7F00;
+        width: 150px;
+        line-height: 80px;
+        transform: translateX(100%);
+        transition: transform .4s;
+        box-shadow: -4px 3px 5px 0px rgb(7 7 7 / 64%);
+    }
+
+    body.menu-open .main-nav {
+        transform: translateX(0);
+    }
+
+    .main-nav a {
+        margin-inline-end: 0px;
+    }
+
+    /* Footer */
+    .about-content {
+        flex-direction: column
+    }
+
+    .my-img {
+        padding: 20px;
+    }
+
+    .about-txt {
+        text-align: center;
+        margin: 0;
+        margin: 0 7px;
+    }
+
+    .my-name {
+        font-size: 20px;
+        color: #FF7F00;
+    }
+
+    /* meme editor */
+    canvas {
+        width: 350px;
+        height: 350px;
+    }
+
+    .meme-editor {
+        display: none;
+        justify-content: space-around;
+        padding: 5px;
+    }
+
+    .editor-container {
+        flex-direction: column;
+        height: 750px;
+        padding: 0;
+    }
+
+    .editor-icons {
+        height: 100%;
+        flex-direction: column;
+        margin-inline-end: 50px;
+    }
+
+    .meme-text {
+        width: 100%;
+        margin-block-end: 10px;
+        border-radius: 5px;
+        padding: 7px;
+        border: none;
+    }
+
+
+
+
 }
