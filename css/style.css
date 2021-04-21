@@ -22,7 +22,6 @@ html {
 body {
     margin: 0;
     background-color: #E3E3E3;
-
 }
 
 a {
@@ -48,9 +47,7 @@ img {
     object-fit: cover;
 }
 
-
-
-/* componenets */
+/* components */
 
 .image-gallery {
     display: grid;
@@ -150,7 +147,6 @@ img {
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
-
 }
 
 .logo {
@@ -180,10 +176,12 @@ img {
     border: 0;
     border-bottom: 2px solid rgb(141, 133, 133);
 }
+
 .search-img {
     width: 20px;
     margin-left: 15px;
 }
+
 .main-footer {
     height: 208px;
     background-color: #FF7F00;
@@ -221,6 +219,10 @@ img {
     margin-left: 41px;
 }
 
+.btn-menu {
+    display: none;
+}
+
 /* HELPERS */
 
 .container {
@@ -254,9 +256,6 @@ img {
     padding: 0;
 }
 
-.btn-menu {
-    display: none;
-}
 
 /* mobile */
 
@@ -283,7 +282,6 @@ img {
         cursor: pointer;
         pointer-events: none;
         opacity: 0;
-
     }
 
     body.menu-open .main-screen {
@@ -336,6 +334,7 @@ img {
     }
 
     /* meme editor */
+
     canvas {
         width: 350px;
         height: 350px;
@@ -378,8 +377,5 @@ img {
         gap: 10px 10px;
         padding: 0 10px;
     }
-
-
-
 
 }

@@ -30,7 +30,7 @@ var gMeme = {
             txt: 'first line',
             size: 40,
             align: 'left',
-            color: 'red',
+            color: 'white',
             pos: {
                 x: 225,
                 y: 60
@@ -40,7 +40,7 @@ var gMeme = {
             txt: 'second line',
             size: 40,
             align: 'left',
-            color: 'red',
+            color: 'white',
             pos: {
                 x: 225,
                 y: 425
@@ -72,6 +72,9 @@ function changeImage(imageId) {
 function getCurrLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }
+function getCurrIdx() {
+    return gMeme.selectedLineIdx
+}
 
 function getCurrImage() {
     return gMeme.selectedImgId
@@ -101,7 +104,7 @@ function addLine() {
         txt: 'middle line',
         size: 40,
         align: 'center',
-        color: 'red',
+        color: 'white',
         pos: {
             x: 225,
             y: 225
@@ -111,11 +114,10 @@ function addLine() {
 }
 
 function deleteLine() {
-    // if (gMeme.selectedLineIdx > 1) gMeme.selectedLineIdx --;
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }
 
-function getImgSearch(){
+function getImgSearch() {
     return gImgsSearch
 }
 

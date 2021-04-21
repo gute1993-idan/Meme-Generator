@@ -17,12 +17,12 @@ function renderCanvas() {
 function renderGallery() {
     if (gIsSearchImg) {
         var images = getImgSearch();
-    }else {
+    } else {
         var images = getImgs();
     }
     let strHTMLs = images.map((image) => {
         return `
-        <div class="">
+        <div>
         <img class = "img-grid" src="${image.url}" alt="" onclick = "openMemeEditor('${image.id}')">
         </div>
         `
@@ -48,17 +48,21 @@ function drawImg() {
         drewTextLines()
     }
 }
+function drewTextLines() {
+    return getLines().forEach(line => {
+        drawText(line.txt, line.pos.x, line.pos.y, line.color)
+    })
+}
 
-function drawText(text, x, y) {
+function drawText(text, x, y, color) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'white'
+    gCtx.fillStyle = color
     gCtx.font = `${getCurrLine().size}px IMPACT`
     gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
-
 
 function onSetText() {
     var elText = document.querySelector('input[name=line]').value;
@@ -82,15 +86,20 @@ function onChangeAline(direction) {
 }
 
 function onSwitchLine() {
+    if (getCurrIdx() === 0) {
+        let lineHeight = getLines()[1].size * 1.25
+        let textWidth = gCtx.measureText(getLines()[1].txt).width;
+        gCtx.strokeRect(getLines()[1].pos.x - textWidth / 2 - 10, getLines()[1].pos.y - lineHeight + 10, textWidth + 20, lineHeight)
+
+    } else if (getCurrIdx() === 1) {
+        let lineHeight = getLines()[0].size * 1.25
+        let textWidth = gCtx.measureText(getLines()[0].txt).width;
+        gCtx.strokeRect(getLines()[0].pos.x - textWidth / 2 - 10, getLines()[0].pos.y - lineHeight + 10, textWidth + 20, lineHeight)
+    }
     switchLine();
     document.querySelector('input[name=line]').placeholder = 'Second line';
 }
 
-function drewTextLines() {
-    return getLines().forEach(line => {
-        drawText(line.txt, line.pos.x, line.pos.y)
-    })
-}
 
 function onSearchImg(letters) {
     gIsSearchImg = true;
@@ -98,9 +107,6 @@ function onSearchImg(letters) {
     renderGallery()
 }
 
-// function onFocusText() {
-
-// } 
 
 function downloadCanvas(elLink) {
     var imgContent = gCanvas.toDataURL('img/jpeg');
@@ -117,7 +123,7 @@ function onDeleteLine() {
     renderCanvas()
 }
 
-function onChangeColor(color){
+function onChangeColor(color) {
     changeColor(color.value);
     renderCanvas()
 }
