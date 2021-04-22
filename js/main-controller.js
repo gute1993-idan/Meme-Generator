@@ -1,14 +1,14 @@
 'use strict'
 
-var gCanvas;
-var gCtx;
-var gIsSearchImg = false;
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     renderGallery()
 }
+var gCanvas;
+var gCtx;
+var gIsSearchImg = false;
 
 function renderCanvas() {
     drawImg()
@@ -133,4 +133,5 @@ function onChangeColor(color) {
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
+
 

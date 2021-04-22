@@ -135,12 +135,16 @@ img {
 
 .line-one,
 .line-three {
-    margin-inline-start: 50px;
+    margin-inline-start: 71px;
 }
 
-.editor-btn>* {
-    margin-inline-start: 50px;
+.editor-btn a:first-child{
+    margin-inline-start: 71px;
 }
+.editor-btn a:last-child {
+    margin-inline-start: 20px;
+}
+
 
 .editor-btn a {
     background-color: #FF7F00;
