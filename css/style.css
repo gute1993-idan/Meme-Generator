@@ -138,20 +138,44 @@ img {
     margin-inline-start: 71px;
 }
 
-.editor-btn a:first-child{
-    margin-inline-start: 71px;
+.editor-btn{
+    margin-inline-start: 50px;
 }
-.editor-btn a:last-child {
-    margin-inline-start: 20px;
-}
-
-
-.editor-btn a {
+.editor-btns{
     background-color: #FF7F00;
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
+    width: 122.51px;
+    margin-inline-start: 7px;
+    height: 59.2px;
+    color: white;
+    font-family: 'Montserrat-regular';
+    font-size: 16px;
+    border: none;
 }
+
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-inline-start: 30px;
+    width: 76px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
 
 .logo {
     width: 133px;
@@ -187,7 +211,7 @@ img {
 }
 
 .main-footer {
-    height: 208px;
+    height: 180px;
     background-color: #FF7F00;
     flex-direction: column;
     text-align: center;
@@ -261,7 +285,48 @@ img {
 }
 
 
+/* tablet */
+
+/* meme editor */
+@media (max-width: 870px) {
+
+
+    canvas {
+        width: 350px;
+        height: 350px;
+    }
+
+    .meme-editor {
+        display: none;
+        justify-content: space-around;
+        padding: 5px;
+    }
+
+    .editor-container {
+        flex-direction: column;
+        height: 750px;
+        padding: 0;
+    }
+
+    .editor-icons {
+        height: 100%;
+        flex-direction: column;
+        margin-inline-end: 50px;
+    }
+
+    .meme-text {
+        width: 100%;
+        margin-block-end: 10px;
+        border-radius: 5px;
+        padding: 7px;
+        border: none;
+    }
+
+
+}
+
 /* mobile */
+
 
 @media (max-width:530px) {
 
@@ -303,7 +368,7 @@ img {
         background-color: #FF7F00;
         width: 150px;
         line-height: 80px;
-        transform: translateX(100%);
+        transform: translateX(103%);
         transition: transform .4s;
         box-shadow: -4px 3px 5px 0px rgb(7 7 7 / 64%);
     }
@@ -317,6 +382,9 @@ img {
     }
 
     /* Footer */
+    .main-footer {
+        height: 100px;
+    }
 
     .about-content {
         flex-direction: column
@@ -335,39 +403,6 @@ img {
     .my-name {
         font-size: 20px;
         color: #FF7F00;
-    }
-
-    /* meme editor */
-
-    canvas {
-        width: 350px;
-        height: 350px;
-    }
-
-    .meme-editor {
-        display: none;
-        justify-content: space-around;
-        padding: 5px;
-    }
-
-    .editor-container {
-        flex-direction: column;
-        height: 750px;
-        padding: 0;
-    }
-
-    .editor-icons {
-        height: 100%;
-        flex-direction: column;
-        margin-inline-end: 50px;
-    }
-
-    .meme-text {
-        width: 100%;
-        margin-block-end: 10px;
-        border-radius: 5px;
-        padding: 7px;
-        border: none;
     }
 
     .main-container {

@@ -81,7 +81,8 @@ function getCurrImage() {
 }
 
 function switchLine() {
-    return gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+    var selectedIdx = gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+    return selectedIdx
 }
 
 function changeAline(direction) {
@@ -137,14 +138,13 @@ function changeColor(color) {
 
 function uploadImg(elForm, ev) {
     ev.preventDefault();
-    document.getElementById('imgData').value = gElCanvas.toDataURL("image/jpeg");
+    document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg");
 
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         document.querySelector('.share-container').innerHTML = `
-        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-           Share   
+        <a onclick = "hideShare()" class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
         </a>`
     }
     let inputVal = elForm.querySelector('input').value
@@ -153,7 +153,6 @@ function uploadImg(elForm, ev) {
 
 function doUploadImg(elForm, onSuccess) {
     var formData = new FormData(elForm);
-    console.log('doUploadImg -> formData', formData)
     fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
@@ -166,3 +165,5 @@ function doUploadImg(elForm, onSuccess) {
             console.error(err)
         })
 }
+
+
