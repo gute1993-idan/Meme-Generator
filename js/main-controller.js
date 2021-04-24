@@ -1,9 +1,8 @@
 'use strict'
-
-
 var gCanvas;
 var gCtx;
 var gIsSearchImg = false;
+var gIsDownloading = false;
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -39,10 +38,6 @@ function openMemeEditor(imageId) {
     renderCanvas()
 }
 
-// function closeMemeEditor() {
-//     document.querySelector('.meme-editor').style.display = 'none'
-// }
-
 function drawImg() {
     var imageId = getMeme().selectedImgId;
 
@@ -69,7 +64,7 @@ function drawText(line, isFocus) {
     gCtx.fillText(line.txt, line.pos.x, line.pos.y)
     gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
 
-    if (isFocus) {
+    if (isFocus && !gIsDownloading) {
         let lineHeight = line.size * 1.25
         let textWidth = gCtx.measureText(line.txt).width;
         gCtx.strokeRect(line.pos.x - textWidth / 2 - 10, line.pos.y - lineHeight + 10, textWidth + 20, lineHeight)
@@ -113,7 +108,7 @@ function onSearchImg(letters) {
 
 function downloadCanvas(elLink) {
     var imgContent = gCanvas.toDataURL('img/jpeg');
-    elLink.href = imgContent
+    elLink.href = imgContent;
 }
 
 function onAddLine() {
@@ -146,7 +141,32 @@ function openGallery() {
     document.querySelector('.about').style.display = 'flex'
     document.querySelector('.search-nav').style.display = 'flex'
     document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.saved-memes').style.display = 'none'
     toggleMenu()
 }
+
+function onOpenSavedMemes() {
+    var imgs = getLocalMemes()
+    let strHTMLs = imgs.map(img => {
+        return ` <div class="local-img">
+        <img style="" src="img/${img.selectedImgId}.jpg" onclick="onSelectMeme(${img.selectedImgId})">
+        </div>`
+    });
+    document.querySelector('.saved-memes').innerHTML = strHTMLs.join('')
+
+    document.querySelector('.main-container').style.display = 'none'
+    document.querySelector('.about').style.display = 'none'
+    document.querySelector('.search-nav').style.display = 'none'
+    document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.saved-memes').style.display = 'block'
+    toggleMenu()
+}
+
+function onSaveToLocal() {
+    saveMemeToLocal()
+}
+
+
+
 
 

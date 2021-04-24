@@ -1,5 +1,8 @@
 'use strict'
 var gImgsSearch = [];
+var gLocalMeme = []
+
+const KEY_SAVED_MEMES = 'SAVED_MEMES';
 
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['all', 'angry', 'minister'] },
@@ -165,5 +168,23 @@ function doUploadImg(elForm, onSuccess) {
             console.error(err)
         })
 }
+
+
+// storage
+
+
+function saveMemeToLocal(){
+    gLocalMeme.push(gMeme)
+    saveToStorage(KEY_SAVED_MEMES, gLocalMeme)
+}
+
+function getLocalMemes() {
+    return gLocalMeme;
+}
+
+
+
+
+
 
 

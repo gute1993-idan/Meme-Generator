@@ -24,31 +24,42 @@
             </div>
             <ul class="main-nav modal flex clean-list">
                 <li><a onclick="openGallery()" href="#gallery">Gallery</a></li>
-                <li><a href="">Memes</a></li>
+                <li><a onclick="onOpenSavedMemes()" href="#">Memes</a></li>
                 <li><a onclick="openGallery()" href="#about">About</a></li>
             </ul>
             <button class="btn-menu" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
-    <section  id="gallery" class="search-nav flex align-center justify-content">
-        <div class="container flex align-center">
-            <input list="Search-word" class="search-input" name="search" placeholder="Search keyword"
-                oninput="onSearchImg(this.value)">
-            <datalist id="Search-word">
-                <option value="all">
-                <option value="minister">
-                <option value="sweet">
-                <option value="happy">
-                <option value="dog">
-                <option value="sleep">
-                <option value="baby">
-                <option value="movie">
-                <option value="weird">
-                <option value="angry">
-                <option value="cat">
-            </datalist>
-            <img class="search-img" src="./img/search.png" alt="">
+    <section id="gallery" class="search-nav flex align-center justify-content">
+        <div class="search container flex align-center">
+            <div class="flex">
+                <input list="Search-word" class="search-input" name="search" placeholder="Search keyword"
+                    oninput="onSearchImg(this.value)">
+                <img class="search-img" src="./img/search.png" alt="">
+                <datalist id="Search-word">
+                    <option value="all">
+                    <option value="minister">
+                    <option value="sweet">
+                    <option value="happy">
+                    <option value="dog">
+                    <option value="sleep">
+                    <option value="baby">
+                    <option value="movie">
+                    <option value="weird">
+                    <option value="angry">
+                    <option value="cat">
+                </datalist>
+            </div>
+                <div class="keywords flex align-center">
+                <h5>angry</h5>
+                <h2>sweet</h2>
+                <h4>happy</h4>
+                <h1>dog</h1>
+                <h5>baby</h5>
+                <h4>cat</h4>
+                <h2>more...</h2>
+            </div>
         </div>
     </section>
 
@@ -70,8 +81,8 @@
                 </div>
 
                 <div class="line-two flex align-center">
-                    <img class="icon-btn" onclick="changeFontSize(1)" src="./icons/increase font - icon.png" alt="">
-                    <img class="icon-btn" onclick="changeFontSize(-1)" src="./icons/decrease font - icon.png" alt="">
+                    <img class="icon-btn" onclick="changeFontSize(5)" src="./icons/increase font - icon.png" alt="">
+                    <img class="icon-btn" onclick="changeFontSize(-5)" src="./icons/decrease font - icon.png" alt="">
                     <img class="icon-btn" src="./icons/align-to-left.png" onclick="onChangeAline('left')" alt="">
                     <img class="icon-btn" src="./icons/center-text-alignment.png" onclick="onChangeAline('center')"
                         alt="">
@@ -81,23 +92,27 @@
                 <div class="line-three flex align-center">
                     <input type="color" id="text-color" oninput="onChangeColor(this)">
                     <img class="icon-btn" src="./icons/paint-board-and-brush.png" alt="">
-                    <img class="icon-btn" onclick="changeDirection(-1)" src="./icons/up.png" alt="">
-                    <img class="icon-btn" onclick="changeDirection(1)" src="./icons/down.jpg" alt="">
+                    <img class="icon-btn" onclick="changeDirection(-10)" src="./icons/up.png" alt="">
+                    <img class="icon-btn" onclick="changeDirection(10)" src="./icons/down.jpg" alt="">
                 </div>
 
                 <div class="editor-btn flex align-center">
                     <a class="editor-btns" href="#" onclick="downloadCanvas(this)" download="">Download</a>
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                         <input name="img" id="imgData" type="hidden" />
-                            <button class="editor-btns" type="submit">Share</button>
+                        <button class="editor-btns" type="submit">Share</button>
                         <div class="share-container"></div>
                     </form>
+                </div>
+                <div class="flex justify-content">
+                    <button class="save-btn" onclick="onSaveToLocal()">Save</button>
                 </div>
             </div>
         </section>
     </section>
 
-
+    <section class="saved-memes">
+        <div class="memes-container"></div>
     </section>
 
     <section class="image-gallery main-container"></section>
@@ -119,7 +134,7 @@
         <p>All rights reserved 2021</p>
     </footer>
 
-    <!-- <script src="./js/storage-service.js"></script> -->
+    <script src="./js/storage-service.js"></script>
     <script src="./js/meme-service.js"></script>
     <script src="./js/main-controller.js"></script>
 </body>
